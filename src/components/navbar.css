@@ -1,0 +1,40 @@
+.nav {
+    display: flex;
+    position: fixed;
+    top: 0;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 1.5rem;
+    background-color: rgba(0, 0, 0, 0.901);
+    text-shadow: 2px 1px rgba(122, 104, 0, 0.878);
+    color: goldenrod;
+    height: 5rem;
+    width: 100%;
+    font-size: 1.5rem;
+}
+
+.time {
+    color:rgb(255, 248, 198);
+    text-shadow: 2px 1px rgb(122, 104, 0);
+}
+
+.search-input {
+    background-color: rgb(0, 0, 0);
+    color:rgb(253, 253, 253);
+    border: none;
+    padding: 6px;
+}
+
+img {
+    width: 2rem;
+    padding: 5px;
+    margin-right: 3rem;
+    border-radius: 30px;
+    cursor: pointer;
+    background-color: goldenrod;
+    transition: .5s;
+}
+
+img:hover {
+    background-color: rgb(255, 248, 198);
+}

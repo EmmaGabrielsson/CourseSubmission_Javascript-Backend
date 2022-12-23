@@ -1,28 +1,31 @@
 import React, { useEffect, useState } from "react";
 import tmdbURL from "./API/tmdbURL";
 import MovieCard from "./MovieCard.jsx";
+import RecentlyViewed from "./RecentlyViewed";
 import ArrowLeft from "../assets/arrow_back.png";
 import ArrowRight from "../assets/arrow_forward.png";
+import FetchMovieData from "./FetchMovieData";
 import "./movies.css";
 
-function MovieList() {
+function PopularMovies() {
+  
   const [movies, setMovies] = useState([]);
 
   useEffect(() => {
     const fetchMovies = async () => {
-      const { data } = await tmdbURL.get("/movie/popular?");
+      const { data } = await tmdbURL.get(`/discover/movie?sort_by=popularity.desc`);
       setMovies(data.results);
     };
     fetchMovies();
   }, []);
 
   const slider = document.getElementById("slider");
-
+  
   const sliderLeft = () => {
     let left = slider.scrollLeft;
     slider.scrollTo({ left: (left -= 300), behavior: "smooth" });
   };
-
+  
   const sliderRight = () => {
     let left = slider.scrollLeft;
     slider.scrollTo({ left: (left += 300), behavior: "smooth" });
@@ -60,8 +63,9 @@ function MovieList() {
           </button>
         </div>
       </section>
+      <RecentlyViewed/>
     </>
   );
 }
 
-export default MovieList;
+export default PopularMovies;

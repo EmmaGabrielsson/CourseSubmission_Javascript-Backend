@@ -1,28 +1,18 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React from 'react';
+import MovieCard from './MovieCard';
 
-const SearchMovies = () => {
-  const { movies, isLoading } = useGlobalContext()
+function SearchMovies({results}) {
 
-  if (isLoading) {
-    return <div className='loading'>loading...</div>
+  let data = [];
+
+  if (results.data) {
+    data = results.data || [];
   }
-  return (
-    <section className='movies'>
-      {movies.map((movie) => {
-        const { imdbID: id, Poster: poster, Title: title, Year: year } = movie
 
-        return (
-          <Link to={`/movies/${id}`} key={id} className='movie'>
-            <article>
-              <img src={poster === 'N/A' ? url : poster} alt={title} />
-              <div className='movie-info'>
-                <h4 className='title'>{title}</h4>
-                <p>{year}</p>
-              </div>
-            </article>
-          </Link>
-        )
+  return (
+    <section className='slider'>
+      {data.map((movie) => {
+        return <MovieCard key={movie.id} movie={...movie}/>
       })}
     </section>
   )

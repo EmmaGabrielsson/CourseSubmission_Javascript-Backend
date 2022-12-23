@@ -1,10 +1,10 @@
-import React, {useState, useEffect} from "react";
+import React from "react";
 import "./movies.css";
 import noImg from "../assets/no-img.png";
 import add from "../assets/watchlist_add.png";
 
 const getImgURL = (poster_path) => {
-  return `https://www.themoviedb.org/t/p/w600_and_h900_bestv2${poster_path}`;
+  return `https://www.themoviedb.org/t/p/w500${poster_path}`;
 };
 
 function MovieCard({
@@ -23,8 +23,29 @@ function MovieCard({
     vote_average,
     overview,
   };
-  
+
   const homepage = `https://www.themoviedb.org/movie/${movie.id}${movie.title}`;
+  
+  
+  let viewedMovies = JSON.parse(localStorage.getItem("viewedMovies") || "[]");
+  
+  function removeMovie() {
+    for ( let i = 0; i < viewedMovies.length; i++ ) {      
+      if (i > 4) {
+        viewedMovies.pop(movie);
+        localStorage.setItem("viewedMovies", JSON.stringify(viewedMovies));
+      }
+    }
+  }
+/*
+  function match() {
+    const findIndexOfMatch = viewedMovies.findIndex(el => el === movie.id)
+    viewedMovies.splice(findIndexOfMatch, 1)
+    viewedMovies.unshift(movie);
+    localStorage.setItem("viewedMovies", JSON.stringify(viewedMovies));
+    removeMovie();
+
+  }*/
 
   return (
     <div className="card">
@@ -37,16 +58,19 @@ function MovieCard({
         <a
           title="More Info"
           href={homepage}
-          target= "_blank"
-          rel="noreferrer"
-          onClick={() => localStorage.setItem(movie.id, JSON.stringify(movie))}
-        >
+          onClick={() => {
+              viewedMovies.unshift(movie);
+              localStorage.setItem("viewedMovies", JSON.stringify(viewedMovies));
+              removeMovie();
+            }
+            }
+             >
           {title}
         </a>
       </h3>
-      <p>Release: {release_date}</p>
+      <p>{release_date}</p>
       <p>
-        Rating: <span className="rating">★{vote_average} /10</span>
+        Rated: <span className="rating">★ {vote_average}</span>
       </p>
       <button className="add-btn" title="add movie" type="button">
         add to watchlist

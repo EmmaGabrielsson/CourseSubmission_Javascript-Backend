@@ -5,10 +5,10 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-image: linear-gradient(-45deg, black, rgba(0, 0, 0, 0.885),rgb(65, 46, 3), rgba(0, 0, 0, 0.885), black) ;
+  background-image: linear-gradient(-45deg, black,rgb(65, 46, 3), rgba(0, 0, 0, 0.885), black) ;
   background-size: 400% 400%;
   position: relative;
-  animation: color 50s ease-in-out infinite;
+  animation: color 20s ease-in-out infinite;
 }
 
 @keyframes color {

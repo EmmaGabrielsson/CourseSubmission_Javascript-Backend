@@ -1,11 +1,26 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
 import "./navbar.css";
-import SearchForm from "./SearchForm";
 import SearchIcon from "../assets/search-icon.svg";
 import Watchlist from "../assets/watchlist-icon.png";
 
-function Navbar() {
+function Navbar(props) {
+  const { onSearch } = props;
+
+  const [searchText, setSearchText] = useState("");
+
+  const handleInput = (e) => {
+    const text = e.target.value;
+    if (searchText !== "") {
+      setSearchText(`https://api.themoviedb.org/3/search/movie?api_key=0344a75c41d12f762099ba1e7125eae6&language=en-US&query=${text}&page=1&include_adult=false`);
+    }
+  };
+
+  const handleEnterKeyPressed = (e) => {
+    if (e.key === "Enter") {
+      onSearch(searchText);
+    }
+  };
+
   return (
     <div className="nav">
       <h1>
@@ -15,8 +30,9 @@ function Navbar() {
       <div className="search">
         <input
           className="search-input"
-          onChange={""}
-          onKeyPress={""}
+          onChange={handleInput}
+          onKeyPress={handleEnterKeyPressed}
+          value={searchText}
           type="text"
           placeholder="search movies"
         />
@@ -25,6 +41,7 @@ function Navbar() {
           className="search-icon"
           src={SearchIcon}
           alt="search icon"
+          onClick={onSearch(searchText)}
         />
         <img
           id="watchlist-icon"

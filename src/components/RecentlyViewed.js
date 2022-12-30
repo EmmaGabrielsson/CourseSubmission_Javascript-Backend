@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "./movies.css";
+import "./components.css";
 import MovieCard from "./MovieCard.jsx";
 import ArrowLeft from "../assets/arrow_back.png";
 import ArrowRight from "../assets/arrow_forward.png";
@@ -17,12 +17,14 @@ function RecentlyViewed() {
 
   const sliderLeft = () => {
     let left = slider.scrollLeft;
-    slider.scrollTo({ left: (left -= 300), behavior: "smooth" });
+    let currentWidth = slider.clientWidth;
+    slider.scrollTo({ left: (left -= currentWidth), behavior: "smooth" });
   };
   
   const sliderRight = () => {
     let left = slider.scrollLeft;
-    slider.scrollTo({ left: (left), behavior: "smooth" });
+    let currentWidth = slider.clientWidth;
+    slider.scrollTo({ left: (left += currentWidth), behavior: "smooth" });
   };
   
 
@@ -57,8 +59,8 @@ if (localStorage.length !== 0)
             />
           </button>
       <div className="movie-container" id="viewed">
-        {viewedMovies.map(function (movie) {
-          return <MovieCard key={movie.id} {...movie} />;
+        {viewedMovies.map(function (movie, index) {
+          return <MovieCard key={index} {...movie} />;
         })}
       </div>
       <button

@@ -3,6 +3,14 @@
     flex-direction: column;
 }
 
+#search-section {
+    margin-top: 9rem;
+}
+
+#search-container {
+    margin: 0rem 2rem;
+}
+
 .section-title {
     color: rgb(255, 248, 198);
 }
@@ -80,27 +88,15 @@
     height: 225px;
 }
 
-.card p {
-    font-size: smaller;
-    margin: 0;
-    margin-bottom: 10px;
-}
-
 .rating {
+    margin-bottom: 2rem;
     font-weight: bold;
     color:rgb(255, 248, 198);
-    font-size: 16px;
+    font-size: 18px;
+    background-color: rgba(0, 0, 0, 0.408);
+    padding: 5px 10px;
+    border-radius: 12px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-}
-
-.add-btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.add {
-    width: 22px;
 }
 
 a {
@@ -115,34 +111,11 @@ a:hover {
     font-size: 20px;
 }
 
-.card button {
-    background-color: goldenrod;
-    border: none;
-    box-shadow: 2px 1px rgba(122, 104, 0, 0.878);
-    cursor: pointer;
-    margin-bottom: 10px;
-}
-
-.card button:hover {
-    transition: 0.2s ease-in-out;
-    background-color:rgb(255, 248, 198);
-}
-
-.clear-btn {
-    color:rgb(255, 248, 198);
-    margin: 0 10rem 0 10rem;
-    cursor: pointer;
-    border: none;
-    padding: 5px;
-    background-color: rgba(0, 0, 0, 0.353);
-}
-
-.clear-btn:hover {
-    background-color: rgba(0, 0, 0, 0.66);
-}
-
 @media (min-width: 600px) {
     .slider {
         margin-top: 0;
     }    
+    #search-section {
+        margin-top: 7rem;
+    }
 }

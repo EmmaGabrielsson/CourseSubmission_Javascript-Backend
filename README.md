@@ -3,8 +3,7 @@
 Here I have created a singlepage application with React using javascrpit. The application fetch movies from the TMDB-API (https://developers.themoviedb.org/3/getting-started/introduction) and includes:
 
 - a searchbar were you can search after all matching movies,
-- a frontpage that displays popular movies and their title and rating in a sidescroll function,
-- an onClick function on movie-title that navigates you to the current movie page with more info,
-- a placeholder for recently viewed movies that displays the users five last visited movie-pages,
+- a frontpage that displays most popular movies, top kids movies and top drama movies and their title and rating in a sidescroll function,
+- a link on movie-title that navigates you to the current movie-homepage with more info,
+- and at the bottom of the frontpage a placeholder for recently viewed movies that renders in when the user visits a movies homepage, and can display the users five recently visited movie-pages saved in localStorage.
 
-- a watchlist, were the user can add movies to a saved list to remember what movies to watch later

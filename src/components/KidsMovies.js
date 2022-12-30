@@ -1,47 +1,55 @@
-import React from "react";
-import MovieCard from "./MovieCard";
+import React, { useEffect, useState } from "react";
+import { api } from "./API/tmdbURL";
+import MovieCard from "./MovieCard.jsx";
 import ArrowLeft from "../assets/arrow_back.png";
 import ArrowRight from "../assets/arrow_forward.png";
 import "./components.css";
 
-function SearchMovies({ movies, search, setSearch }) {
-  
-  const slider = document.getElementById("searched-slider");
-  
+function KidsMovies() {
+  const [movies, setMovies] = useState([]);
+
+  useEffect(() => {
+    const fetchMovies = async () => {
+      const { data } = await api.get(`/discover/movie?certification_country=US&certification.lte=G&sort_by=popularity.desc`);
+      setMovies(data.results);
+    };
+    fetchMovies();
+  }, []);
+
+  const slider = document.getElementById("kids-slider");
+
   const sliderLeft = () => {
     let left = slider.scrollLeft;
     let currentWidth = slider.clientWidth;
     slider.scrollTo({ left: (left -= currentWidth), behavior: "smooth" });
   };
-  
+
   const sliderRight = () => {
     let left = slider.scrollLeft;
     let currentWidth = slider.clientWidth;
     slider.scrollTo({ left: (left += currentWidth), behavior: "smooth" });
   };
-  
-  
+
   return (
     <>
-    {movies.length !== 0 ?
-      <section className="section" id="search-section">
-        <div className="slider" id="search-container">
-          <h2 className="section-title">Your Search: "{search}"</h2>
+      <section className="section">
+        <div className="slider">
+          <h2 className="section-title">Top Kids Movies..</h2>
           <button
             className="arrow-left"
             title="previous"
             type="button"
             onClick={sliderLeft}
-            >
+          >
             <img
               className="arrow"
               src={ArrowLeft}
               alt="move to previous slide"
-              />
+            />
           </button>
-          <div className="movie-container" id="searched-slider">
-            {movies.map((movie) => {
-              return <MovieCard key={movie.id} {...movie} />;
+          <div className="movie-container" id="kids-slider">
+            {movies.map((movie, index) => {
+              return <MovieCard key={index} {...movie} />;
             })}
           </div>
           <button
@@ -49,15 +57,13 @@ function SearchMovies({ movies, search, setSearch }) {
             title="next"
             type="button"
             onClick={sliderRight}
-            >
+          >
             <img className="arrow" src={ArrowRight} alt="move to next slide" />
           </button>
         </div>
       </section>
-      : <section className="section" id="not-found"><p className="not-found">No movies match your search. Try again..</p></section>}
     </>
   );
-  
 }
 
-export default SearchMovies;
+export default KidsMovies;

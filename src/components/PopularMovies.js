@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from "react";
-import tmdbURL from "./API/tmdbURL";
+import {api} from "./API/tmdbURL";
 import MovieCard from "./MovieCard.jsx";
-import RecentlyViewed from "./RecentlyViewed";
 import ArrowLeft from "../assets/arrow_back.png";
 import ArrowRight from "../assets/arrow_forward.png";
-import FetchMovieData from "./FetchMovieData";
-import "./movies.css";
+import "./components.css";
 
 function PopularMovies() {
   
@@ -13,7 +11,7 @@ function PopularMovies() {
 
   useEffect(() => {
     const fetchMovies = async () => {
-      const { data } = await tmdbURL.get(`/discover/movie?sort_by=popularity.desc`);
+      const { data } = await api.get(`/discover/movie?sort_by=popularity.desc`);
       setMovies(data.results);
     };
     fetchMovies();
@@ -23,19 +21,21 @@ function PopularMovies() {
   
   const sliderLeft = () => {
     let left = slider.scrollLeft;
-    slider.scrollTo({ left: (left -= 300), behavior: "smooth" });
+    let currentWidth = slider.clientWidth;
+    slider.scrollTo({ left: (left -= currentWidth), behavior: "smooth" });
   };
   
   const sliderRight = () => {
     let left = slider.scrollLeft;
-    slider.scrollTo({ left: (left += 300), behavior: "smooth" });
+    let currentWidth = slider.clientWidth;
+    slider.scrollTo({ left: (left += currentWidth), behavior: "smooth" });
   };
 
   return (
     <>
       <section className="section">
-        <div className="slider">
-          <h2 className="section-title">Popular Movies..</h2>
+        <div className="slider" id="first-main-slider">
+          <h2 className="section-title">Most Popular Movies..</h2>
           <button
             className="arrow-left"
             title="previous"
@@ -63,7 +63,6 @@ function PopularMovies() {
           </button>
         </div>
       </section>
-      <RecentlyViewed/>
     </>
   );
 }

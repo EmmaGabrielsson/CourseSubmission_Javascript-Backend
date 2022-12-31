@@ -20,22 +20,21 @@ function Navbar() {
     })
     .then((data) => {
       setMovies(data.results);
+      setShowSearch(true)
     })
     .catch((err) => console.log(err.message));
   }, [URL]);
   
   const handleSearch = (e) => {
     if (e.key === "Enter") {
-      const apiKey = `0344a75c41d12f762099ba1e7125eae6`;
+      const apiKey = process.env.REACT_APP_API_KEY;
       const url = `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${searchText}`;
       setUrl(url)
-      setShowSearch(true)
-      //setSearchText(" ");
+      document.getElementById("search").value= "";
     }
   };
 
   const handleSubmit = (e) => e.preventDefault();
-
 
   return (
     <>
@@ -50,7 +49,6 @@ function Navbar() {
               name="search"
               className="search-input"
               onChange={(e) => setSearchText(e.target.value)}
-              value={searchText}
               onKeyPress={handleSearch}
               type="text"
               placeholder="search movies"

@@ -4,7 +4,7 @@ import ArrowLeft from "../assets/arrow_back.png";
 import ArrowRight from "../assets/arrow_forward.png";
 import "./components.css";
 
-function SearchMovies({ movies, search, setSearch }) {
+function SearchMovies({ movies, search }) {
   
   const slider = document.getElementById("searched-slider");
   
@@ -20,10 +20,8 @@ function SearchMovies({ movies, search, setSearch }) {
     slider.scrollTo({ left: (left += currentWidth), behavior: "smooth" });
   };
   
-  
-  return (
-    <>
-    {movies.length !== 0 ?
+  if (movies.length !==0) {
+    return (
       <section className="section" id="search-section">
         <div className="slider" id="search-container">
           <h2 className="section-title">Your Search: "{search}"</h2>
@@ -54,10 +52,13 @@ function SearchMovies({ movies, search, setSearch }) {
           </button>
         </div>
       </section>
-      : <section className="section" id="not-found"><p className="not-found">No movies match your search. Try again..</p></section>}
-    </>
-  );
-  
+    )
+  } else {
+    return (
+      <section className="section" id="not-found"><p className="not-found">No movies match your search. Try again..</p></section>
+    )
+  }
+    
 }
 
 export default SearchMovies;

@@ -1,5 +1,5 @@
 import React from "react";
-import "./components.css";
+import "../CSS/components.css";
 import noImg from "../assets/no-img.png";
 
 const getImgURL = (poster_path) => {

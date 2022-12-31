@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "./components.css";
+import "../CSS/components.css";
 import MovieCard from "./MovieCard.jsx";
 import ArrowLeft from "../assets/arrow_back.png";
 import ArrowRight from "../assets/arrow_forward.png";

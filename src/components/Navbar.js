@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import "./navbar.css";
-import "./components.css";
+import "../CSS/navbar.css";
+import "../CSS/components.css";
 import SearchIcon from "../assets/search-icon.svg";
 import SearchMovies from "./SearchMovies";
 
@@ -9,28 +9,30 @@ function Navbar() {
   const [searchText, setSearchText] = useState("");
   const [URL, setUrl] = useState("");
   const [showSearch, setShowSearch] = useState(false);
-  
+
   useEffect(() => {
     fetch(URL)
-    .then((response) => {
-      if (!response.ok) {
-        throw Error("Error: " + response.status);
-      }
-      return response.json();
-    })
-    .then((data) => {
-      setMovies(data.results);
-      setShowSearch(true)
-    })
-    .catch((err) => console.log(err.message));
+      .then((response) => {
+        if (!response.ok) {
+          throw Error("Error: " + response.status);
+        }
+        return response.json();
+      })
+      .then((data) => {
+        setMovies(data.results);
+        setShowSearch(true);
+      })
+      .catch((err) => console.log(err.message));
   }, [URL]);
-  
+
   const handleSearch = (e) => {
-    if (e.key === "Enter") {
+    if (e.key === "Enter" || e.currentTarget === document.getElementById("search-img") ){
       const apiKey = process.env.REACT_APP_API_KEY;
       const url = `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${searchText}`;
-      setUrl(url)
-      document.getElementById("search").value= "";
+      setUrl(url);
+      document.getElementById("search").value = "";
+    } else {
+      return;
     }
   };
 
@@ -54,16 +56,20 @@ function Navbar() {
               placeholder="search movies"
             />
             <img
+            id="search-img"
               title="search"
               className="search-icon"
               src={SearchIcon}
               alt="search icon"
+              onClick={handleSearch}
             />
           </form>
         </div>
       </header>
       <div className="space"></div>
-      {showSearch === true ? <SearchMovies movies={movies} search={searchText} /> : ""}
+      {showSearch === true ? (
+        <SearchMovies movies={movies} search={searchText} />
+      ) : ("")}
     </>
   );
 }

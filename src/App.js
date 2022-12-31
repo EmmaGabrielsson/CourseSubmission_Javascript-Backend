@@ -1,7 +1,7 @@
 import React from "react";
 import Navbar from "./components/Navbar.js";
 import Home from "./Pages/Home";
-import "./app.css";
+import "./CSS/app.css";
 
 function App() {
 
@@ -12,7 +12,7 @@ return (
         <Home/>
       </main>
       <footer>
-        <p>A Javascript app with React by Emma Gabrielsson</p>
+        <p>A Javascript App with React by Emma Gabrielsson</p>
       </footer>
     </div>
   );

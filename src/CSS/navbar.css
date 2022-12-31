@@ -1,78 +1,79 @@
 .nav {
-    position: fixed;
-    top: 0;
-    padding: 0.75rem 2rem;
-    background-color: rgb(11, 11, 11);
-    text-shadow: 2px 1px rgba(122, 104, 0, 0.878);
-    color: goldenrod;
-    height: 8rem;
-    width: 100%;
-    font-size: 1.5rem;
-    z-index: 100;
+  position: fixed;
+  top: 0;
+  padding: 0.75rem 2rem;
+  background-color: rgb(11, 11, 11);
+  text-shadow: 2px 1px rgba(122, 104, 0, 0.878);
+  color: goldenrod;
+  height: 8rem;
+  width: 100%;
+  font-size: 1.5rem;
+  z-index: 100;
 }
 
 h1 {
-    margin-top: 4rem;
-    margin-left: 0.4rem;
+  margin-top: 4rem;
+  margin-left: 0.4rem;
 }
 
 .time {
-    color:rgb(255, 248, 198);
-    text-shadow: 2px 1px rgb(122, 104, 0);
+  color: rgb(255, 248, 198);
+  text-shadow: 2px 1px rgb(122, 104, 0);
 }
 
 .search-input {
-    position: absolute;
-    top: 2.5rem;
-    right: 1.5rem;
-    width: 200px;
-    background-color: rgb(0, 0, 0);
-    color:rgb(253, 253, 253);
-    border: none;
-    padding: 8px;
-    margin-right: 6rem;
-    border-radius: 10px;
+  position: absolute;
+  top: 2.5rem;
+  right: 1.5rem;
+  width: 200px;
+  background-color: rgb(0, 0, 0);
+  color: rgb(253, 253, 253);
+  border: none;
+  padding: 8px;
+  margin-right: 6rem;
+  border-radius: 10px;
 }
 
 .search-icon {
-    width: 1.6rem;
-    padding: 5px;
-    top: 2.35rem;
-    right: 6.5rem;
-    border-radius: 30px;
-    position: absolute;
-    cursor: pointer;
-    background-color: goldenrod;
-    transition: .5s;
+  width: 1.6rem;
+  padding: 5px;
+  top: 2.35rem;
+  right: 6.5rem;
+  border-radius: 30px;
+  position: absolute;
+  cursor: pointer;
+  background-color: goldenrod;
+  transition: 0.5s;
 }
 
 .search-icon:hover {
-    background-color: rgb(255, 248, 198);
+  background-color: rgb(255, 248, 198);
 }
 
 .space {
-    margin-top: 9rem;
+  margin-top: 9rem;
 }
 
 #not-found {
-    padding: 3rem 0 0 4.2rem;
-    color: white;
-    font-weight: bold;
+  padding: 3rem 0 0 4.2rem;
+  color: white;
+  font-weight: bold;
+  text-align: center;
 }
 
 @media (min-width: 600px) {
-    .nav {
-        display: flex;
-        position: fixed;
-        top: 0;
-        justify-content: space-between;
-        align-items: center; 
-        height: 5rem;   
-    }
-    h1 {
-        margin-top: 1.5rem;
-    }    
-    .space {
-        margin-top: 7rem;
-    }
+  .nav {
+    display: flex;
+    position: fixed;
+    top: 0;
+    justify-content: space-between;
+    align-items: center;
+    height: 5rem;
+  }
+  h1 {
+    margin-top: 1.5rem;
+  }
+  .space {
+    margin-top: 7rem;
+  }
 }

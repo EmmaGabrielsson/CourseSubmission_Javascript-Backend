@@ -39,11 +39,12 @@ function MovieCard({
       }
     }
   }
-
+  //let filteredMovies = viewedMovies.filter(movies => movies.id != e.target.id);
+  //localStorage.setItem("viewedMovies", JSON.stringify(filteredMovies));
+  
+  //fixa lägga till en movie som redan finns/ är besökt först i recently view/localStorage
 
   function saveToLocalStorage() {
-    //let filteredMovies = viewedMovies.filter(movies => movies.id != e.target.id);
-    //localStorage.setItem("viewedMovies", JSON.stringify(filteredMovies));
     viewedMovies.unshift(movie);
     localStorage.setItem("viewedMovies", JSON.stringify(viewedMovies));
     removeMovie();
@@ -51,24 +52,18 @@ function MovieCard({
 
   return (
     <div className="card">
-      <img
-        className="movie-img"
-        src={getImgURL(poster_path)}
-        alt={title}
-      ></img>
+      <img className="movie-img" src={getImgURL(poster_path)} alt={title}></img>
       <h3 className="title">
         <a
           title="More Info"
           href={homepage}
           onClick={() => saveToLocalStorage()}
         >
-          {title.length > 30 ? title.slice(0,30)+".." : title}
+          {title.length > 30 ? title.slice(0, 30) + ".." : title}
         </a>
       </h3>
-      <p>{release_date}</p>
-      <p className="rating">
-        ★ {vote_average}
-      </p>
+      <p className="release">{release_date}</p>
+      <p className="rating">★ {vote_average}</p>
     </div>
   );
 }

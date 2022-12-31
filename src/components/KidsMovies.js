@@ -10,7 +10,9 @@ function KidsMovies() {
 
   useEffect(() => {
     const fetchMovies = async () => {
-      const { data } = await api.get(`/discover/movie?certification_country=US&certification.lte=G&sort_by=popularity.desc`);
+      const { data } = await api.get(
+        `/discover/movie?certification_country=US&certification.lte=G&sort_by=popularity.desc`
+      );
       setMovies(data.results);
     };
     fetchMovies();

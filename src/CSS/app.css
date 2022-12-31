@@ -1,11 +1,11 @@
 main {
-    margin: 0rem 2rem 4rem 2rem;
-    color: white;
+  margin: 0rem 2rem 4rem 2rem;
+  color: white;
 }
 
 footer {
-    background-color: rgb(11, 11, 11);
-    color: rgb(255, 248, 198);
-    text-align: center;
-    padding: 1rem;
+  background-color: rgb(11, 11, 11);
+  color: rgb(255, 248, 198);
+  text-align: center;
+  padding: 1rem;
 }

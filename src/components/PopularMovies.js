@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from "react";
-import {api} from "./API/tmdbURL";
+import { api } from "./API/tmdbURL";
 import MovieCard from "./MovieCard.jsx";
 import ArrowLeft from "../assets/arrow_back.png";
 import ArrowRight from "../assets/arrow_forward.png";
 import "../CSS/components.css";
 
 function PopularMovies() {
-  
   const [movies, setMovies] = useState([]);
 
   useEffect(() => {
@@ -18,13 +17,13 @@ function PopularMovies() {
   }, []);
 
   const slider = document.getElementById("slider");
-  
+
   const sliderLeft = () => {
     let left = slider.scrollLeft;
     let currentWidth = slider.clientWidth;
     slider.scrollTo({ left: (left -= currentWidth), behavior: "smooth" });
   };
-  
+
   const sliderRight = () => {
     let left = slider.scrollLeft;
     let currentWidth = slider.clientWidth;

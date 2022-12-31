@@ -26,7 +26,10 @@ function Navbar() {
   }, [URL]);
 
   const handleSearch = (e) => {
-    if (e.key === "Enter" || e.currentTarget === document.getElementById("search-img") ){
+    if (
+      e.key === "Enter" ||
+      e.currentTarget === document.getElementById("search-img")
+    ) {
       const apiKey = process.env.REACT_APP_API_KEY;
       const url = `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${searchText}`;
       setUrl(url);
@@ -56,7 +59,7 @@ function Navbar() {
               placeholder="search movies"
             />
             <img
-            id="search-img"
+              id="search-img"
               title="search"
               className="search-icon"
               src={SearchIcon}
@@ -69,7 +72,9 @@ function Navbar() {
       <div className="space"></div>
       {showSearch === true ? (
         <SearchMovies movies={movies} search={searchText} />
-      ) : ("")}
+      ) : (
+        ""
+      )}
     </>
   );
 }

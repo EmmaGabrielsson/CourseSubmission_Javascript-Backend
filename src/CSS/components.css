@@ -1,131 +1,154 @@
 .section {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 #search-section {
-    margin-top: 10rem;
-    position: relative;
+  margin-top: 10rem;
+  position: relative;
 }
 
 #search-container {
-    margin: 0rem 2rem;
+  margin: 0 2rem 3rem 2rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+#search-container .card {
+  height: 450px;
+}
+
+#search-container .card img {
+  width: 100%;
+  height: 280px;
+}
+
+#search-container .card .release{
+display: none;
 }
 
 .section-title {
-    color: rgb(255, 248, 198);
+  color: rgb(255, 248, 198);
 }
 
 .section-title-search {
-    color: rgb(255, 248, 198);
-    margin: 2rem 4.5rem 0 4.5rem;
+  color: rgb(255, 248, 198);
+  text-align: center;
+  margin: 2rem 4.5rem 1rem 4.5rem;
 }
 
 .slider {
-    position: relative;
-    padding: 1rem 2.5rem;
+  position: relative;
+  padding: 1rem 2.5rem;
 }
 
 #viewed {
-    padding-bottom: 15px;
-    margin-bottom: 0;
+  padding-bottom: 15px;
+  margin-bottom: 0;
 }
 
 .movie-container {
-    display: flex;
-    flex-direction: row;
-    gap: 1rem;
-    overflow: hidden;
-    margin-bottom: 1rem;
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  overflow: hidden;
+  margin-bottom: 1rem;
 }
 
 .arrow {
-    height: 50px;
-    width: 40px;
+  height: 50px;
+  width: 40px;
 }
 
 .arrow-left {
-    position: absolute;
-    top: 5.5rem;
-    left: 0.5rem;
-    height: 450px;
-    border: none;
-    border-radius: 20px 0 0 20px;
-    background-color: rgba(255, 217, 0, 0.33);
-    cursor: pointer;
+  position: absolute;
+  top: 5.5rem;
+  left: 0.5rem;
+  height: 450px;
+  border: none;
+  border-radius: 20px 0 0 20px;
+  background-color: rgba(255, 217, 0, 0.33);
+  cursor: pointer;
 }
 
 .arrow-right {
-    position: absolute;
-    top: 5.5rem;
-    right: 0.5rem;
-    height: 450px;
-    border: none;
-    border-radius: 0 20px 20px 0;
-    background-color: rgba(255, 217, 0, 0.33);
-    cursor: pointer;
+  position: absolute;
+  top: 5.5rem;
+  right: 0.5rem;
+  height: 450px;
+  border: none;
+  border-radius: 0 20px 20px 0;
+  background-color: rgba(255, 217, 0, 0.33);
+  cursor: pointer;
 }
 
-.left, .right {
-    top: 1rem;
+.left,
+.right {
+  top: 1rem;
 }
 
-.arrow-left img, .arrow-right img {
-    height: 60px;
-    width: 18px;;
+.arrow-left img,
+.arrow-right img {
+  height: 60px;
+  width: 18px;
 }
 
-.arrow-left:hover, .arrow-right:hover {
-    transition: 0.3s ease-in-out;
-    background-color:rgb(255, 248, 198);
+.arrow-left:hover,
+.arrow-right:hover {
+  transition: 0.3s ease-in-out;
+  background-color: rgb(255, 248, 198);
 }
 
 .card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    width: 200px;
-    height: 448px;
-    color: white;
-    text-align: center;
-    border: 1px solid rgba(0, 0, 0, 0.448);
-    background-color: rgba(0, 0, 0, 0.156);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  width: 200px;
+  height: 448px;
+  color: white;
+  text-align: center;
+  border: 1px solid rgba(0, 0, 0, 0.448);
+  background-color: rgba(0, 0, 0, 0.156);
 }
 
 .movie-img {
-    width: 170px;
-    height: 225px;
+  width: 170px;
+  height: 225px;
 }
 
 .rating {
-    margin-bottom: 2rem;
-    font-weight: bold;
-    color:rgb(255, 248, 198);
-    font-size: 18px;
-    background-color: rgba(0, 0, 0, 0.408);
-    padding: 5px 10px;
-    border-radius: 12px;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  margin-bottom: 2rem;
+  font-weight: bold;
+  color: rgb(255, 248, 198);
+  font-size: 18px;
+  background-color: rgba(0, 0, 0, 0.408);
+  padding: 5px 10px;
+  border-radius: 12px;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }
 
 a {
-    text-decoration: none;
-    color: white;
-    margin: 5px;
+  text-decoration: none;
+  color: white;
+  margin: 5px;
 }
 
 a:hover {
-    transition: 0.2s ease-in-out;
-    color: rgb(255, 248, 198);
-    font-size: 20px;
+  transition: 0.2s ease-in-out;
+  color: rgb(255, 248, 198);
+  font-size: 20px;
 }
 
 @media (min-width: 600px) {
-    .slider {
-        margin-top: 0;
-    }    
-    #search-section {
-        margin-top: 7rem;
-    }
+  .slider {
+    margin-top: 0;
+  }
+  #search-section {
+    margin-top: 7rem;
+  }
 }

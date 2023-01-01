@@ -52,6 +52,7 @@ h1 {
 
 .space {
   margin-top: 9rem;
+  scroll-margin: 6rem;
 }
 
 #not-found {
@@ -75,5 +76,18 @@ h1 {
   }
   .space {
     margin-top: 7rem;
+  }
+}
+
+@media (min-width: 1000px) {
+  h1 {
+    margin-left: 2.8rem;
+  }
+  .search-input {
+    right: 4rem;
+    width: 350px;
+  }
+  .search-icon {
+    right: 9rem;
   }
 }

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "../CSS/navbar.css";
 import "../CSS/components.css";
 import SearchIcon from "../assets/search-icon.svg";
@@ -25,6 +25,12 @@ function Navbar() {
       .catch((err) => console.log(err.message));
   }, [URL]);
 
+  const topRef = useRef(null);
+
+  const scrollToTopp = () => {
+    topRef.current.scrollIntoView({ behavior: "smooth", top: 0 });
+  };
+
   const handleSearch = (e) => {
     if (
       e.key === "Enter" ||
@@ -34,8 +40,7 @@ function Navbar() {
       const url = `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${searchText}`;
       setUrl(url);
       document.getElementById("search").value = "";
-    } else {
-      return;
+      scrollToTopp();
     }
   };
 
@@ -69,7 +74,7 @@ function Navbar() {
           </form>
         </div>
       </header>
-      <div className="space"></div>
+      <div ref={topRef} className="space"></div>
       {showSearch === true ? (
         <SearchMovies movies={movies} search={searchText} />
       ) : (

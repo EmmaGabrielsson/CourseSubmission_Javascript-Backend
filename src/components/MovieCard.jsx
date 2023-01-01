@@ -33,18 +33,16 @@ function MovieCard({
 
   function removeMovie() {
     for (let i = 0; i < viewedMovies.length; i++) {
-      if (i > 4) {
+      if (i > 5) {
         viewedMovies.pop(movie);
         localStorage.setItem("viewedMovies", JSON.stringify(viewedMovies));
       }
     }
   }
-  //let filteredMovies = viewedMovies.filter(movies => movies.id != e.target.id);
-  //localStorage.setItem("viewedMovies", JSON.stringify(filteredMovies));
-  
-  //fixa lägga till en movie som redan finns/ är besökt först i recently view/localStorage
 
   function saveToLocalStorage() {
+    let obj = viewedMovies.find((movies) => movies.id === movie.id);
+    viewedMovies.splice(viewedMovies.indexOf(obj), 1);
     viewedMovies.unshift(movie);
     localStorage.setItem("viewedMovies", JSON.stringify(viewedMovies));
     removeMovie();

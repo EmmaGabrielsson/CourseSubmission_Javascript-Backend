@@ -3,6 +3,7 @@ import MovieCard from "./MovieCard";
 import "../CSS/components.css";
 
 function SearchMovies({ movies, search }) {
+
   if (movies.length !== 0) {
     return (
       <section className="section" id="search-section">
@@ -15,11 +16,12 @@ function SearchMovies({ movies, search }) {
       </section>
     );
   } else {
-    return (
-      <section className="section" id="not-found">
-        <p className="not-found">No movies match your search. Try again..</p>
-      </section>
-    );
+      return (
+        <section className="section" id="not-found">
+          <h2>No movies matched your search.</h2>
+          <p className="not-found">Check if your spelling is correct or try other search words..</p>
+        </section>
+      );
   }
 }
 

@@ -28,7 +28,7 @@ function MovieCard({
   };
 
   const homepage = `https://www.themoviedb.org/movie/${movie.id}${movie.title}`;
-
+  
   let viewedMovies = JSON.parse(localStorage.getItem("viewedMovies") || "[]");
 
   function removeMovie() {
@@ -39,7 +39,7 @@ function MovieCard({
       }
     }
   }
-
+  
   function saveToLocalStorage() {
     let obj = viewedMovies.find((movies) => movies.id === movie.id);
     viewedMovies.splice(viewedMovies.indexOf(obj), 1);
@@ -53,9 +53,9 @@ function MovieCard({
       <img className="movie-img" src={getImgURL(poster_path)} alt={title}></img>
       <h3 className="title">
         <a
+          onClick={() => saveToLocalStorage()}
           title="More Info"
           href={homepage}
-          onClick={() => saveToLocalStorage()}
         >
           {title.length > 30 ? title.slice(0, 30) + ".." : title}
         </a>

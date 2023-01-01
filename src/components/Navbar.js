@@ -28,7 +28,9 @@ function Navbar() {
   const topRef = useRef(null);
 
   const scrollToTopp = () => {
-    topRef.current.scrollIntoView({ behavior: "smooth", top: 0 });
+    if (document.getElementById("search").value !== "") {
+      topRef.current.scrollIntoView({ behavior: "smooth", top: -20 });
+    }
   };
 
   const handleSearch = (e) => {
@@ -39,8 +41,8 @@ function Navbar() {
       const apiKey = process.env.REACT_APP_API_KEY;
       const url = `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${searchText}`;
       setUrl(url);
-      document.getElementById("search").value = "";
       scrollToTopp();
+      document.getElementById("search").value = "";
     }
   };
 

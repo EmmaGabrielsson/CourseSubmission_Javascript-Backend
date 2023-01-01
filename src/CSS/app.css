@@ -4,8 +4,9 @@ main {
 }
 
 footer {
+  width: 100% auto;
   background-color: rgb(11, 11, 11);
   color: rgb(255, 248, 198);
   text-align: center;
-  padding: 1rem;
+  padding: 2rem;
 }

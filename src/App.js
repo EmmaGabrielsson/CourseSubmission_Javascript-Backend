@@ -12,7 +12,7 @@ return (
         <Home/>
       </main>
       <footer>
-        <p>A Javascript App with React by Emma Gabrielsson</p>
+        <p>A Javascript App with React</p>
       </footer>
     </div>
   );

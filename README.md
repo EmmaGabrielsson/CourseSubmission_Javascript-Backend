@@ -1,6 +1,5 @@
 ## Course Submission Javascript-Backend 
 
-<<<<<<< HEAD
 ### To quickly preview the site, see this netlify link: https://react-movietime.netlify.app/
 
 Here I have created a singlepage application with React using javascrpit. The application fetch movies from the TMDB-API (https://developers.themoviedb.org/3/getting-started/introduction) and includes:

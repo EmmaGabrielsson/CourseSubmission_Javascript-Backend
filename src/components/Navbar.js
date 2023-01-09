@@ -29,7 +29,7 @@ function Navbar() {
 
   const scrollToTopp = () => {
     if (document.getElementById("search").value !== "") {
-      topRef.current.scrollIntoView({ behavior: "smooth", top: -20 });
+      topRef.current.scrollIntoView({ behavior: "smooth", block: "start"});
     }
   };
 

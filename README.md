@@ -10,3 +10,5 @@ Here I have created a singlepage application with React using javascrpit. The ap
 
 Finally, to be able to send requests to the API, a key is used. The current key is put in a separate .env file to saftely hide the key in the frontend when using react.
 
+To quickly preview the site, see this netlify link: https://react-movietime.netlify.app/
+
